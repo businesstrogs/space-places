@@ -1,0 +1,106 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #F8F6F0;
+}
+
+.tv {
+    width: 600px;
+    height: 400px;
+    background-color: #000;
+    border: 2px solid #555;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tv img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.single-button-container {
+    margin-left: 500px; /* Push the entire container (and button) to the right */
+}
+
+button {
+    margin-top: 20px;
+    width: 80px;              /* Equal width and height for a circular shape */
+    height: 80px;
+    border-radius: 50%;       /* This makes the button a circle */
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;               /* Remove the default padding */
+    background-color: #1498db; /* Button color (blue) */
+    color: white;             /* Text color */
+    border: none;             /* Remove default border */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #2980b9; /* Darker blue when hovering */
+}
+
+/* Container to align the buttons side by side and place them at the bottom left */
+.buttons-container {
+    display: flex;               /* Align buttons horizontally (side by side) */
+    justify-content: flex-start; /* Align buttons to the left */
+    align-items: center;         /* Vertically align them within the container */
+    position: absolute;          /* Absolute positioning to place it on the screen */
+    bottom: 20px;                /* 20px from the bottom of the page */
+    left: 20px;                  /* 20px from the left of the page */
+    
+   
+}
+
+button-left, button-right {
+    width: 5px;                /* Smaller size for the buttons */
+    height: 5px;               /* Smaller size for the buttons */
+    border-radius: 50%;         /* Circular shape */
+    cursor: pointer;
+    padding: 5;                 /* Remove default padding; padding should be 0 for small buttons */
+    background-color: #3498db;  /* Button color (blue) */
+    color: white;               /* Text color */
+    border: none;               /* Remove default border */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Add margin to create space between buttons */
+button-left {
+    margin-right: 5px;          /* Space between the left and right buttons */
+}
+
+
+/* Button hover effect */
+button-right:hover, button-left:hover {
+    background-color: #2980b9;  /* Darker blue when hovering */
+}
+</style>
